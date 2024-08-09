@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_root" name="Project Employee Assignment System"/>
+        <menuitem id="master_first_level_menu" name="Master" parent="menu_root"/>
+            <menuitem id="project_master_menu" name="Project Master" action="project_master_action" parent="master_first_level_menu"/>
+            <menuitem id="employee_master_menu" name="Employee Master" action="employee_master_action" parent="master_first_level_menu"/>
+            <menuitem id="department_master_menu" name="Department Master" action="department_master_action" parent="master_first_level_menu"/>
+            <menuitem id="employee_class_master_menu" name="Employee Class Master" action="employee_class_master_action" parent="master_first_level_menu"/>
+            <menuitem id="year_master_menu" name="Year Master" action="year_master_action" parent="master_first_level_menu"/>
+            <menuitem id="month_master_menu" name="Month Master" action="month_master_action" parent="master_first_level_menu"/>
+</odoo>
+
