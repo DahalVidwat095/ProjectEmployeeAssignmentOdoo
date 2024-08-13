@@ -3,6 +3,19 @@
     <record id="year_master_action" model="ir.actions.act_window">
         <field name="name">Year Master</field>
         <field name="res_model">year.master</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="view_year_master_tree" model="ir.ui.view">
+        <field name="name">year.master.tree</field>
+        <field name="model">year.master</field>
+        <field name="arch" type="xml">
+            <tree string="Year Master Tree" editable="bottom"> 
+                <field name="year"/>
+                <field name="order"/>
+                <field name="default_flag"/>
+                <field name="delete_flag"/>
+            </tree>
+        </field>
     </record>
 </odoo>

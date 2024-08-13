@@ -3,6 +3,7 @@ from odoo import models, fields
 class ProjectMaster(models.Model):
     _name = "project.master"
     _description = "Project Master"
+    _rec_name = 'code'
 
     code = fields.Char(required=True, help='Unique Key', index=True)
     name = fields.Char(required=True)
@@ -11,5 +12,5 @@ class ProjectMaster(models.Model):
     description = fields.Text()
 
     _sql_constraints = [
-        ('unique_code', 'unique(code)', 'The project code must be unique.'),
+        ('unique_code', 'UNIQUE(code)', 'The project code must be unique.'),
     ]

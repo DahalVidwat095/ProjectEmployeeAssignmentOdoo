@@ -3,6 +3,7 @@ from odoo import models, fields
 class EmployeeMaster(models.Model):
     _name = "employee.master"
     _description = "Employee Master"
+    _rec_name = 'code'
 
     code = fields.Char(required=True, help='Unique Key', index=True)
     name = fields.Char(required=True)
@@ -12,5 +13,5 @@ class EmployeeMaster(models.Model):
     description = fields.Text()
 
     _sql_constraints = [
-        ('unique_code', 'unique(code)', 'The employee code must be unique.'),
+        ('unique_code', 'UNIQUE(code)', 'The employee code must be unique.'),
     ]

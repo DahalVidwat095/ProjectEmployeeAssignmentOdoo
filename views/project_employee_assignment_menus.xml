@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <menuitem id="menu_root" name="Project Employee Assignment System"/>
+        <menuitem id="main_first_level_menu" name="Main" parent="menu_root"/>
+            <menuitem id="project_employee_assign_menu" name="Project Employee Assign" action="project_employee_assign_action" parent="main_first_level_menu"/>
         <menuitem id="master_first_level_menu" name="Master" parent="menu_root"/>
             <menuitem id="project_master_menu" name="Project Master" action="project_master_action" parent="master_first_level_menu"/>
             <menuitem id="employee_master_menu" name="Employee Master" action="employee_master_action" parent="master_first_level_menu"/>

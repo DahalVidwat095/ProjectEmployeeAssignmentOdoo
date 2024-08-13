@@ -3,6 +3,7 @@ from odoo import models, fields
 class DepartmentMaster(models.Model):
     _name = "department.master"
     _description = "Department Master"
+    _rec_name = 'code'
 
     code = fields.Char(required=True, help='Unique Key', index=True)
     name = fields.Char(required=True)
@@ -11,5 +12,5 @@ class DepartmentMaster(models.Model):
     description = fields.Text()
 
     _sql_constraints = [
-        ('unique_code', 'unique(code)', 'The department code must be unique.'),
+        ('unique_code', 'UNIQUE(code)', 'The department code must be unique.'),
     ]

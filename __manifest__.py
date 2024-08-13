@@ -14,6 +14,7 @@
         'views/employee_class_master_views.xml',
         'views/year_master_views.xml',
         'views/month_master_views.xml',
+        'views/project_employee_assign_views.xml',
         'views/project_employee_assignment_menus.xml',
     ],
 }

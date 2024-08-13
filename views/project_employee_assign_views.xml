@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_employee_assign_action" model="ir.actions.act_window">
+        <field name="name">Project Employee Assign</field>
+        <field name="res_model">project.employee.assign</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="view_project_employee_assign_tree" model="ir.ui.view">
+        <field name="name">project.employee.assign.tree</field>
+        <field name="model">project.employee.assign</field>
+        <field name="arch" type="xml">
+            <tree string=" Project Employee Assign Tree" editable="bottom"> 
+                <field name="project_code"/>
+                <field name="employee_code"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="op_hours_planned" string="OP Hours Planned"/>
+                <field name="op_hours_actual" string="OP Hours Actual"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
