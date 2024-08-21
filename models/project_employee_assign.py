@@ -8,8 +8,8 @@ class ProjectEmployeeAssign(models.Model):
     employee_code = fields.Many2one("employee.master", required=True, help='Unique Key', index=True)
     year = fields.Many2one("year.master", required=True, help='Unique Key', index=True)
     month = fields.Many2one("month.master", required=True, help='Unique Key', index=True)
-    op_hours_planned = fields.Char(required=True)
-    op_hours_actual = fields.Char(required=True)
+    op_hours_planned = fields.Float(required=True)
+    op_hours_actual = fields.Float(required=True)
 
 
     _sql_constraints = [

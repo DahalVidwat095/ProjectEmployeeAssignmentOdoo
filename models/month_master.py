@@ -5,7 +5,7 @@ class MonthMaster(models.Model):
     _description = "Month Master"
     _rec_name = 'month'
 
-    month = fields.Char(required=True, help='Unique Key', index=True)
+    month = fields.Integer(required=True, help='Unique Key', index=True)
     order = fields.Integer(required=True, help='Unique Order')
 
     _sql_constraints = [

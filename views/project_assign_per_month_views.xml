@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_assign_per_month_action" model="ir.actions.act_window">
+        <field name="name">Project Assign Per Month</field>
+        <field name="res_model">project.assign.per.month</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="view_project_assign_per_month_tree" model="ir.ui.view">
+        <field name="name">project.assign.per.month.tree</field>
+        <field name="model">project.assign.per.month</field>
+        <field name="arch" type="xml">
+            <tree string="Project Assign Per Month Tree" editable="bottom"> 
+                <field name="project_code"/>
+                <field name="employee_code"/>
+                <field name="month_04"/>
+                <field name="month_05"/>
+                <field name="month_06"/>
+                <field name="month_07"/>
+                <field name="month_08"/>
+                <field name="month_09"/>
+                <field name="month_10"/>
+                <field name="month_11"/>
+                <field name="month_12"/>
+                <field name="month_01"/>
+                <field name="month_02"/>
+                <field name="month_03"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
