@@ -3,7 +3,6 @@ from odoo import models, fields
 class DepartmentMaster(models.Model):
     _name = "department.master"
     _description = "Department Master"
-    _rec_name = 'code'
 
     code = fields.Char(required=True, help='Unique Key', index=True)
     name = fields.Char(required=True)
@@ -14,3 +13,10 @@ class DepartmentMaster(models.Model):
     _sql_constraints = [
         ('unique_code', 'UNIQUE(code)', 'The department code must be unique.'),
     ]
+
+    def _compute_display_name(self):
+            for record in self:
+                if self.env.context.get('show_name', False):
+                     record.display_name = f"{record.name}"
+                else:
+                     record.display_name = f"{record.code}"
