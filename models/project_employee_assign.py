@@ -15,4 +15,3 @@ class ProjectEmployeeAssign(models.Model):
     _sql_constraints = [
         ('unique_project_employee_year_month', 'UNIQUE(project_code, employee_code, year, month)', 'The combination of project code, employee code, year, and month must be unique.')
     ]
-
