@@ -33,8 +33,8 @@ class ProjectAssignPerMonth(models.Model):
     def _compute_hours(self):
         for record in self:
             assignments = self.env['project.employee.assign'].search([
-                ('project_code', '=', record.project_code.code),
-                ('employee_code', '=', record.employee_code.code)
+                ('project_code', '=', record.project_code.id),
+                ('employee_code', '=', record.employee_code.id)
             ])
 
             assignment_map = {assignment.month.month: assignment.op_hours_actual for assignment in assignments}
@@ -59,8 +59,8 @@ class ProjectAssignPerMonth(models.Model):
                 month_value = getattr(record, month_field)
 
                 assignment = self.env['project.employee.assign'].search([
-                    ('project_code', '=', record.project_code.code),
-                    ('employee_code', '=', record.employee_code.code),
+                    ('project_code', '=', record.project_code.id),
+                    ('employee_code', '=', record.employee_code.id),
                     ('month.month', '=', month)
                 ], limit=1)
 
@@ -85,6 +85,6 @@ class ProjectAssignPerMonth(models.Model):
     def _compute_related_assignments(self):
         for record in self:
             record.related_assignment_ids = self.env['project.employee.assign'].search([
-                ('project_code', '=', record.project_code.code),
-                ('employee_code', '=', record.employee_code.code)
+                ('project_code', '=', record.project_code.id),
+                ('employee_code', '=', record.employee_code.id)
             ])
