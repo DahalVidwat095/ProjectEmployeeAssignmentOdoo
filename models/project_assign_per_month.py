@@ -4,8 +4,8 @@ class ProjectAssignPerMonth(models.Model):
     _name = "project.assign.per.month"
     _description = "Project Assign Per Month"
 
-    project_code = fields.Many2one("project.master", required=True, help='Unique Key', index=True)
-    employee_code = fields.Many2one("employee.master", required=True, help='Unique Key', index=True)
+    project_code = fields.Many2one("project.master", required=True, help='Unique Key', index=True, context={'show_name': True})
+    employee_code = fields.Many2one("employee.master", required=True, help='Unique Key', index=True, context={'show_name': True})
     month_01 = fields.Float(string='01', compute='_compute_hours', inverse='_inverse_hours', default=0.0, store=True)
     month_02 = fields.Float(string='02', compute='_compute_hours', inverse='_inverse_hours', default=0.0, store=True)
     month_03 = fields.Float(string='03', compute='_compute_hours', inverse='_inverse_hours', default=0.0, store=True)
@@ -77,7 +77,7 @@ class ProjectAssignPerMonth(models.Model):
                             'employee_code': record.employee_code.id,
                             'year': default_year.id,
                             'month': self.env['month.master'].search([('month', '=', month)], limit=1).id,
-                            'op_hours_planned': 0.0,
+                            'op_hours_planned': month_value,
                             'op_hours_actual': month_value,
                         })
 
