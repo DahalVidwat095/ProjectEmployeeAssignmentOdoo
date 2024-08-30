@@ -50,7 +50,6 @@ class ProjectEmployeeAssignPerMonth(models.Model):
                     if current_value in (None, 0.0):
                         setattr(record, month_field, 0.0)
 
-
     @api.depends('month_01', 'month_02', 'month_03', 'month_04', 'month_05', 'month_06', 'month_07', 'month_08', 'month_09', 'month_10', 'month_11', 'month_12')
     def _inverse_hours(self):
         for record in self:
@@ -88,3 +87,15 @@ class ProjectEmployeeAssignPerMonth(models.Model):
                 ('project_code', '=', record.project_code.id),
                 ('employee_code', '=', record.employee_code.id)
             ])
+    
+    def action_view_employee_assignments_per_month(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': f'Assignments for {self.employee_code.name}',
+            'res_model': 'project.employee.assign.per.month',
+            'view_mode': 'tree',
+            'view_id': self.env.ref('project_employee_assignment_system.view_employee_assign_per_month_tree').id,
+            'domain': [('employee_code', '=', self.employee_code.id)],
+            'context': {'default_employee_code': self.employee_code.id},
+        }

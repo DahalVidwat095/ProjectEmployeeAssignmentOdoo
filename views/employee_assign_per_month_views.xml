@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_project_assign_per_month_tree" model="ir.ui.view">
+    <record id="view_employee_assign_per_month_tree" model="ir.ui.view">
         <field name="name">employee.assign.per.month.tree</field>
         <field name="model">project.employee.assign.per.month</field>
         <field name="arch" type="xml">
