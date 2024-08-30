@@ -19,7 +19,7 @@ class ProjectEmployeeAssign(models.Model):
     def create(self, vals):
         record = super(ProjectEmployeeAssign, self).create(vals)
 
-        existing_assignment = self.env['project.assign.per.month'].search([
+        existing_assignment = self.env['project.employee.assign.per.month'].search([
             ('project_code', '=', record.project_code.id),
             ('employee_code', '=', record.employee_code.id)
         ], limit=1)
@@ -27,7 +27,7 @@ class ProjectEmployeeAssign(models.Model):
         if not existing_assignment:
             month_field = f'month_{str(record.month.month).zfill(2)}'
 
-            self.env['project.assign.per.month'].create({
+            self.env['project.employee.assign.per.month'].create({
                 'project_code': record.project_code.id,
                 'employee_code': record.employee_code.id,
                 month_field: record.op_hours_actual,

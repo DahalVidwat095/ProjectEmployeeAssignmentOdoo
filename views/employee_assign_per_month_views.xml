@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="view_project_assign_per_month_tree" model="ir.ui.view">
-        <field name="name">project.assign.per.month.tree</field>
+        <field name="name">employee.assign.per.month.tree</field>
         <field name="model">project.employee.assign.per.month</field>
         <field name="arch" type="xml">
-            <tree string="Project Assign Per Month Tree" editable="bottom"> 
-                <field name="employee_code"/>
+            <tree string="Employee Assign Per Month Tree" editable="bottom"> 
+                <field name="project_code"/>
                 <field name="month_04"/>
                 <field name="month_05"/>
                 <field name="month_06"/>
