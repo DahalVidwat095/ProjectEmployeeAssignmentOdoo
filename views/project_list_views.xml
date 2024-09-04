@@ -12,8 +12,13 @@
         <field name="arch" type="xml">
             <tree string=" Project List Tree" editable="bottom">
                 <button name="action_view_project_assignments_per_month" type="object" string="Edit" class="btn-primary"/>
+                <button name="action_view_project_list_per_month" type="object" string="Summary" class="btn-primary"/>
                 <field name="project_code"/>
                 <field name="project_name"/>
+                <field name="op_hours_planned"/>
+                <field name="op_hours_actual"/>
+                <field name="planned_cost"/>
+                <field name="actual_cost"/>
             </tree>
         </field>
     </record>

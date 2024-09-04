@@ -4,7 +4,6 @@
         <menuitem id="main_first_level_menu" name="Main" parent="menu_root"/>
             <menuitem id="project_employee_assign_menu" name="Project Employee Assign" action="project_employee_assign_action" parent="main_first_level_menu"/>
             <menuitem id="project_list_menu" name="Project List" action="project_list_action" parent="main_first_level_menu"/>
-            <menuitem id="project_employee_assign_per_month_menu" name="Project Employee Assign Per Month" action="project_employee_assign_per_month_action" parent="main_first_level_menu"/>
         <menuitem id="master_first_level_menu" name="Master" parent="menu_root"/>
             <menuitem id="project_master_menu" name="Project Master" action="project_master_action" parent="master_first_level_menu"/>
             <menuitem id="employee_master_menu" name="Employee Master" action="employee_master_action" parent="master_first_level_menu"/>

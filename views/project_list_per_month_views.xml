@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_project_list_per_month_tree" model="ir.ui.view">
+        <field name="name">project.list.per.month.tree</field>
+        <field name="model">project.list.per.month</field>
+        <field name="arch" type="xml">
+            <tree string="Project List Per Month Tree" editable="bottom"> 
+                <field name="month" string="Month"/>
+                <button name="action_view_project_list_per_month_employee" type="object" string="View Employees" class="oe_highlight"/>
+                <field name="op_hours_planned"/>
+                <field name="op_hours_actual"/>
+                <field name="planned_cost"/>
+                <field name="actual_cost"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

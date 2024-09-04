@@ -10,7 +10,7 @@
         <field name="name">project.employee.assign.tree</field>
         <field name="model">project.employee.assign</field>
         <field name="arch" type="xml">
-            <tree string=" Project Employee Assign Tree" editable="bottom"> 
+            <tree string="Project Employee Assign Tree" editable="bottom"> 
                 <field name="project_code"/>
                 <field name="employee_code"/>
                 <field name="year"/>
