@@ -93,34 +93,48 @@ class ProjectList(models.Model):
             'target': 'current',
         }
 
-# class ProjectEmployeeAssign(models.Model):
-#     _inherit = 'project.employee.assign'
+class ProjectEmployeeAssign(models.Model):
+    _inherit = 'project.employee.assign'
 
-#     @api.model
-#     def create(self, vals):
-#         res = super(ProjectEmployeeAssign, self).create(vals)
-#         self._update_project_list(res)
-#         return res
+    @api.model
+    def create(self, vals):
+        res = super(ProjectEmployeeAssign, self).create(vals)
+        self._update_project_list(res)
+        return res
 
-#     def write(self, vals):
-#         res = super(ProjectEmployeeAssign, self).write(vals)
-#         self._update_project_list(self)
-#         return res
+    def write(self, vals):
+        res = super(ProjectEmployeeAssign, self).write(vals)
+        self._update_project_list(self)
+        return res
 
-#     def unlink(self):
-#         projects = self.mapped('project_code')
-#         res = super(ProjectEmployeeAssign, self).unlink()
-#         self._update_project_list(projects)
-#         return res
+    def unlink(self):
+        projects = self.mapped('project_code')
+        res = super(ProjectEmployeeAssign, self).unlink()
+        self._update_project_list(projects)
+        return res
 
-#     @api.model
-#     def _update_project_list(self, records):
-#         if isinstance(records, models.Model):
-#             projects = records.mapped('project_code')
-#         else:
-#             projects = records
+    @api.model
+    def _update_project_list(self, records):
+    # Add logging for debugging purposes
+        _logger.info(f"Updating project list with records: {records}")
 
-#         if projects:
-#             project_list = self.env['project.list'].search([('project_code', 'in', projects.ids)])
-#             if project_list:
-#                 project_list._compute_op_hours()
+    # Ensure that 'records' is a valid recordset or list of project ids
+        if isinstance(records, models.Model):
+            # Check if 'project_code' exists on the recordset
+            if 'project_code' in records._fields:
+                projects = records.mapped('project_code')
+                _logger.info(f"Mapped project_code from records: {projects}")
+            else:
+                _logger.error(f"'project_code' field is not available in the records: {records}")
+                projects = self.env['project.master'].browse()  # Empty recordset as fallback
+        else:
+            projects = records
+
+        if projects:
+            # Search for corresponding 'project.list' records based on project ids
+            project_list = self.env['project.list'].search([('project_code', 'in', projects.ids)])
+            _logger.info(f"Found project.list records: {project_list}")
+
+            if project_list:
+                # Trigger a recomputation of OP hours for the affected projects
+                project_list._compute_op_hours()
